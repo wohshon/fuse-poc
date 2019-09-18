@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <!-- Define a traditional camel context here -->
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+     <restConfiguration component="servlet" bindingMode="auto" />
+ <rest path="/rest">
+    <post uri="/request/{documentId}"  consumes="application/json" produces="application/json">
+      <to uri="direct:request"/>
+    </post>
+
+  </rest>
+
+
+  <route>
+    <from uri="direct:request"/>
+    <log message="body: ${body}"/>
+    <log message="post param: ${headers}"/>
+   
+    <to uri="bean:myTransformer?method=request"/>
+
+    <log  message="SEND AMQ MESSAGE BODY: ${body}"/>
+<!--
+    <to id="_to2 " pattern="InOnly" uri="amqp:queue:input.json?jmsMessageType=Text"/>
+-->
+    <to  pattern="InOut" uri="amqp:queue:input.json?jmsMessageType=Text&amp;replyTo=output.json"/>
+    <log message="GET AMQ MESSAGE BODY: ${body}"/>  
+     <log message="Reply Header - JMSCorrelationID: ${header.JMSCorrelationID}"/>
+      <setHeader headerName="Content-Type"> 
+        <constant>test/plain</constant> 
+    </setHeader> 
+      <setBody > 
+        <simple>${body}</simple>
+    </setBody> 
+  </route>
+</camelContext>
+</beans>
