@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring       http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <bean class="org.mycompany.MyProcessor" id="myProcessor"/>
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <route id="netty4-consumer">
+            <from id="_from1" uri="netty4:tcp://0.0.0.0:5021"/>
+            <log message="incoming request ${body}"/>
+            <log  message="Header - JMSCorrelationID: ${header.JMSCorrelationID}"/>
+            <log id="_log9" message=">>> In the beginning of netty4-consumer"/>
+            <setHeader headerName="JMSCorrelationID" id="_setHeader2">
+                <simple>${header.JMSCorrelationID}</simple>
+            </setHeader>      
+
+            <wireTap uri="direct:processRequest"/>
+
+        </route>
+
+
+        <route id="netty4-response">
+            <from id="_from1" uri="direct:processRequest"/>
+            <!--in this simulation, I am using a built in JMSCorrelationID to track the response. 
+            In actual implementation, a persistence/cache mechanism may be needed to track this-->
+            <log  message="Checking JMSCorrelationID header is still avail: ${header.JMSCorrelationID}"/>
+            <log message=">>> SIMULATE, PROCCESSING DONE, return to client"/>
+            <log message="HEADERS0 0 ${headers}"/>
+            <log message="HEADERS ${headers}"/>
+            <process id="_process1" ref="myProcessor"/>
+            <log  message="Checking again JMSCorrelationID header is still avail: ${header.JMSCorrelationID}"/>
+            <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5022?transferExchange=true&amp;sync=false"/>
+
+        </route>
+    </camelContext>
+</beans>

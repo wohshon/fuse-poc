@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01">
+  <xs:element name="Fr">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FIId">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FinInstnId">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Othr">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Id" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="To">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FIId">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FinInstnId">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Othr">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Id" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BizMsgIdr" type="xs:string"/>
+  <xs:element name="MsgDefIdr" type="xs:string"/>
+  <xs:element name="BizSvc" type="xs:string"/>
+  <xs:element name="CreDt" type="xs:dateTime"/>
+  <xs:element name="CpyDplct" type="xs:string"/>
+  <xs:element name="PssblDplct" type="xs:string"/>
+</xs:schema>

@@ -1,0 +1,187 @@
+﻿{
+	"BusMsg": {
+		"AppHdr": {
+			"Fr": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": {
+								"__prefix": "ns1",
+								"__text": "BBBBBBBB"
+							},
+							"__prefix": "ns1"
+						},
+						"__prefix": "ns1"
+					},
+					"__prefix": "ns1"
+				},
+				"__prefix": "ns1"
+			},
+			"To": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": {
+								"__prefix": "ns1",
+								"__text": "AAAAAAAA"
+							},
+							"__prefix": "ns1"
+						},
+						"__prefix": "ns1"
+					},
+					"__prefix": "ns1"
+				},
+				"__prefix": "ns1"
+			},
+			"BizMsgIdr": {
+				"__prefix": "ns1",
+				"__text": "20190816BBBBBBBB010HRB17117964"
+			},
+			"MsgDefIdr": {
+				"__prefix": "ns1",
+				"__text": "pacs.002.001.08"
+			},
+			"BizSvc": {
+				"__prefix": "ns1",
+				"__text": "RPP"
+			},
+			"CreDt": {
+				"__prefix": "ns1",
+				"__text": "2019-08-16T06:38:25Z"
+			},
+			"CpyDplct": {
+				"__prefix": "ns1",
+				"__text": "CODU"
+			},
+			"PssblDplct": {
+				"__prefix": "ns1",
+				"__text": "false"
+			},
+			"__prefix": "ns"
+		},
+		"Document": {
+			"FIToFIPmtStsRpt": {
+				"GrpHdr": {
+					"MsgId": {
+						"__prefix": "ns2",
+						"__text": "20190816BBBBBBBB01000487266"
+					},
+					"CreDtTm": {
+						"__prefix": "ns2",
+						"__text": "2019-08-16T14:38:11.733"
+					},
+					"__prefix": "ns2"
+				},
+				"OrgnlGrpInfAndSts": {
+					"OrgnlMsgId": {
+						"__prefix": "ns2",
+						"__text": "20190816AAAAAAAA01055000003"
+					},
+					"OrgnlMsgNmId": {
+						"__prefix": "ns2",
+						"__text": "pacs.008.001.06"
+					},
+					"__prefix": "ns2"
+				},
+				"TxInfAndSts": {
+					"OrgnlEndToEndId": {
+						"__prefix": "ns2",
+						"__text": "20190816AAAAAAAA010ORB55000003"
+					},
+					"OrgnlTxId": {
+						"__prefix": "ns2",
+						"__text": "20190816AAAAAAAA01055000003"
+					},
+					"TxSts": {
+						"__prefix": "ns2",
+						"__text": "ACSP"
+					},
+					"StsRsnInf": {
+						"Rsn": {
+							"Prtry": {
+								"__prefix": "ns2",
+								"__text": "U000"
+							},
+							"__prefix": "ns2"
+						},
+						"__prefix": "ns2"
+					},
+					"ClrSysRef": {
+						"__prefix": "ns2",
+						"__text": "002"
+					},
+					"OrgnlTxRef": {
+						"IntrBkSttlmDt": {
+							"__prefix": "ns2",
+							"__text": "2019-08-16"
+						},
+						"Cdtr": {
+							"Nm": {
+								"__prefix": "ns2",
+								"__text": "TESTING"
+							},
+							"__prefix": "ns2"
+						},
+						"CdtrAcct": {
+							"Id": {
+								"Othr": {
+									"Id": {
+										"__prefix": "ns2",
+										"__text": "1234567890"
+									},
+									"__prefix": "ns2"
+								},
+								"__prefix": "ns2"
+							},
+							"Tp": {
+								"Prtry": {
+									"__prefix": "ns2",
+									"__text": "LOAN"
+								},
+								"__prefix": "ns2"
+							},
+							"__prefix": "ns2"
+						},
+						"__prefix": "ns2"
+					},
+					"SplmtryData": {
+						"PlcAndNm": {
+							"__prefix": "ns2",
+							"__text": "Place and name"
+						},
+						"Envlp": {
+							"InstrForCdtrAcct": {
+								"RsdntSts": {
+									"__prefix": "ns2",
+									"__text": "1"
+								},
+								"ShariaCmpl": {
+									"__prefix": "ns2",
+									"__text": "U"
+								},
+								"Dtls": {
+									"__prefix": "ns2",
+									"__text": "1"
+								},
+								"__prefix": "ns2"
+							},
+							"CdtrAcctCstmrCtg": {
+								"__prefix": "ns2",
+								"__text": "RET"
+							},
+							"__prefix": "ns2"
+						},
+						"__prefix": "ns2"
+					},
+					"__prefix": "ns2"
+				},
+				"__prefix": "ns"
+			},
+			"__prefix": "ns"
+		},
+		"_xmlns:ns": "urn:rpp",
+		"_xmlns:ns1": "urn:iso:std:iso:20022:tech:xsd:head.001.001.01",
+		"_xmlns:ns2": "urn:iso:std:iso:20022:tech:xsd:pacs.002.001.08",
+		"__prefix": "ns"
+	}
+}

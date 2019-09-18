@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:urn="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:rpp"><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.08" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:pacs.002.001.08.xsd"/><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.08" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:pacs.002.001.08.xsd"/><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.08" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:pacs.002.001.08.xsd"/><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:head.001.001.01.xsd"/><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:head.001.001.01.xsd"/><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:head.001.001.01.xsd"/><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:head.001.001.01.xsd"/><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:head.001.001.01.xsd"/><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:head.001.001.01.xsd"/><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:head.001.001.01.xsd"/><xs:import namespace="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" schemaLocation="file:/opt/workspace/mock-netty4-service/src/main/resources/iso:std:iso:20022:tech:xsd:head.001.001.01.xsd"/>
+  <xs:element name="BusMsg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AppHdr">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="urn:Fr"/>
+              <xs:element ref="urn:To"/>
+              <xs:element ref="urn:BizMsgIdr"/>
+              <xs:element ref="urn:MsgDefIdr"/>
+              <xs:element ref="urn:BizSvc"/>
+              <xs:element ref="urn:CreDt"/>
+              <xs:element ref="urn:CpyDplct"/>
+              <xs:element ref="urn:PssblDplct"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Document">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FIToFIPmtStsRpt">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="urn:GrpHdr"/>
+                    <xs:element ref="urn:OrgnlGrpInfAndSts"/>
+                    <xs:element ref="urn:TxInfAndSts"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
