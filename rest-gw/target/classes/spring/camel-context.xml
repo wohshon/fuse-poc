@@ -6,7 +6,7 @@
     <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
      <restConfiguration component="servlet" bindingMode="auto" />
  <rest path="/rest">
-    <post uri="/request/{documentId}"  consumes="application/json" produces="application/json">
+    <post uri="/request/{documentId}" consumes="application/json" produces="application/json">
       <to uri="direct:request"/>
     </post>
 
@@ -21,6 +21,7 @@
     <to uri="bean:myTransformer?method=request"/>
 
     <log  message="SEND AMQ MESSAGE BODY: ${body}"/>
+ 
 <!--
     <to id="_to2 " pattern="InOnly" uri="amqp:queue:input.json?jmsMessageType=Text"/>
 -->

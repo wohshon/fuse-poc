@@ -16,9 +16,14 @@
  */
 package com.redhat;
 
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import org.apache.camel.Exchange;
 import org.springframework.stereotype.Component;
@@ -31,13 +36,30 @@ public class MyTransformer {
 
     Logger log = Logger.getLogger(this.getClass().getName());
 
-    //inject exchange
+
+
+    Gson gson = new Gson();
     public void request(Exchange ex) {
-        log.info("processor: "+ex.getIn().getBody());
-        
+        log.info("====================="+ex.getIn().getBody().toString());
+        //Map<String, LinkedHashMap<String, LinkedHashMap>> map=(LinkedHashMap<String,LinkedHashMap<String, LinkedHashMap>>)ex.getIn().getBody();
+        Map map=(Map)ex.getIn().getBody();
+        log.info(""+map.get("ns:BusMsg"));
+        String jsonString = gson.toJson(ex.getIn().getBody(), Map.class);
+        JsonObject jo=gson.fromJson(jsonString, JsonObject.class);
+        String docRef=jo.get("ns:BusMsg").getAsJsonObject().get("ns:AppHdr").getAsJsonObject().get("ns1:BizMsgIdr").getAsJsonObject().get("#text").getAsString();
+        log.info("----"+ docRef);
+        ex.getIn().setHeader("DOC_ID", docRef);
+        log.info("OUTPUT"+jsonString);
+        ex.getIn().setBody(jsonString);
+        //log.info(""+map.get("ns:BusMsg"));
+        //incoming is a json string
+        //String json=ex.getIn().getBody().toString();
+
+        //JsonObject jsonObject=gson.fromJson(json, JsonObject.class);
+        //log.info("============================"+json);
+        //log.info("============================"+jsonObject);
+        //ex.getIn().setBody(jsonObject);
     }
-
-
 
     
 }

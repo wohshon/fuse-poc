@@ -27,7 +27,8 @@ public class MyProcessor implements Processor {
 		
 		//InputStream is = exchange.getIn().getBody(InputStream.class);
 		String xml = Files.lines(Paths.get(path)).collect(Collectors.joining("\n"));
-
+		//		<ns1:BizMsgIdr>20190816BBBBBBBB010HRB17117964</ns1:BizMsgIdr>
+		xml=xml.replace("<ns1:BizMsgIdr>20190816BBBBBBBB010HRB17117964</ns1:BizMsgIdr>", "<ns1:BizMsgIdr>"+exchange.getIn().getHeader("DOC_ID")+"</ns1:BizMsgIdr>");
 		exchange.getIn().setBody(xml);
 	}
 

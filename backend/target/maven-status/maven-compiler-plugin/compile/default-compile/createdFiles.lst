@@ -68,6 +68,7 @@ rpp_1568087264516/BusMsg$Document$FIToFICstmrCdtTrf.class
 iso/std/iso/_20022/tech/xsd/pacs_008_001_1568087264516/CdtTrfTxInfChild$DbtrAcct$Id$Othr.class
 request/FIId_.class
 response/To.class
+com/redhat/MyProcessor.class
 request/Document.class
 response/OrgnlMsgId.class
 response/Othr__.class
@@ -165,6 +166,7 @@ iso/std/iso/_20022/tech/xsd/head_001_001_1568090201313/To$FIId$FinInstnId$Othr.c
 iso/std/iso/_20022/tech/xsd/head_001_001_1568090201313/Fr$FIId.class
 iso/std/iso/_20022/tech/xsd/head_001_001_1568087264516/To$FIId$FinInstnId.class
 request/CdtrAgt.class
+com/redhat/Cache.class
 iso/std/iso/_20022/tech/xsd/pacs_008_001_1568087264516/CdtTrfTxInfChild$InstgAgt.class
 response/FinInstnId_.class
 iso/std/iso/_20022/tech/xsd/pacs_008_001_1568087264516/CdtTrfTxInfChild$DbtrAcct$Tp.class

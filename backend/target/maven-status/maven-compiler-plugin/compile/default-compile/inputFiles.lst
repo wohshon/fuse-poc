@@ -44,6 +44,7 @@
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/response/OrgnlTxRef.java
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/response/GrpHdr.java
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/request/Tp.java
+/home/virtuser/apps/poc/fuse-poc/backend/src/main/java/com/redhat/MyProcessor.java
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/response/CdtrAcctCstmrCtg.java
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/response/Id.java
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/iso/std/iso/_20022/tech/xsd/pacs_002_001_1568090201313/GrpHdr.java
@@ -80,6 +81,7 @@
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/request/Envlp.java
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/iso/std/iso/_20022/tech/xsd/pacs_002_001_1568090201313/ObjectFactory.java
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/request/CdtTrfTxInf_.java
+/home/virtuser/apps/poc/fuse-poc/backend/src/main/java/com/redhat/Cache.java
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/request/Cdtr.java
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/response/FinInstnId_.java
 /home/virtuser/apps/poc/fuse-poc/backend/src/main/java/response/CreDt.java

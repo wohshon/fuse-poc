@@ -10,6 +10,12 @@
             <jaxb contextPath="rpp_1568087264516" id="rpp_1568087264516"/>
             <json id="transform-json" library="Jackson"/>
             <jaxb contextPath="rpp_1568090201313" id="rpp_1568090201313"/>
+                <xmljson id="xmljson"
+                           	forceTopLevelObject="true"	
+                />
+                <xmljson id="jsonxml" 
+                
+                    />               
         </dataFormats>
 
      <restConfiguration component="servlet" bindingMode="auto" />
@@ -19,12 +25,15 @@
       <from id="fromamqp " uri="amqp:queue:input.json?disableReplyTo=true&amp;jmsMessageType=Text"/>
       <log message="from amqp ${body}"/>
       <log  message="Header - JMSCorrelationID: ${header.JMSCorrelationID}"/>
-      <log  message="Header - Document ID: ${header.documentId}"/>
-      <!-- send to tcp ip server -->
+      <log  message="Header - Document ID: ${header.DOC_ID}"/>
+      <unmarshal ref="jsonxml"/>
+      <to uri="bean:myProcessor?method=saveDocumentId"/>
+      <!-- send to tcp ip server 
 
             <setHeader headerName="JMSCorrelationID" id="_setHeader2">
                 <simple>${header.JMSCorrelationID}</simple>
-            </setHeader>      
+            </setHeader>      -->
+
             <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5021?transferExchange=true"/>
 
   </route>
@@ -34,8 +43,10 @@
             <log message="Response from RPP ${body}"/>
             <log  message="Header - JMSCorrelationID: ${header.JMSCorrelationID}"/>
 
-        <!-- transormation-->
+        <!-- transormation
                 <to id="_to2" uri="ref:responsetx"/>
+                -->
+      <marshal ref="xmljson"/>
 
         <to id="replyamqp " pattern="InOnly" uri="amqp:queue:output.json?jmsMessageType=Text"/>
 
