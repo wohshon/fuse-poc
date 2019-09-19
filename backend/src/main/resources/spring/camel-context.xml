@@ -34,7 +34,7 @@
                 <simple>${header.JMSCorrelationID}</simple>
             </setHeader>      -->
 
-    <to pattern="InOnly" id="_to1" uri="netty4:tcp://netty-backend:5021?transferExchange=true"/>
+    <to pattern="InOnly" id="_to1" uri="netty4:tcp://netty-backend:5021?transferExchange=true&amp;textline=true"/>
 
   </route>
 
