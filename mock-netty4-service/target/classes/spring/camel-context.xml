@@ -29,7 +29,7 @@
             <process id="_process1" ref="myProcessor"/>
             <log message="RESPONSE ${body}"/>
             <log  message="Checking again DOC_ID header is still avail: ${header.DOC_ID}"/>
-            <to pattern="InOnly" id="_to1" uri="netty4:tcp://backend:5022?transferExchange=true&amp;sync=false&amp;textline=true"/>
+            <to pattern="InOnly" id="_to1" uri="netty4:tcp://backend:5022?transferExchange=true&amp;sync=false&amp;textline=true&amp;decoderMaxLineLength=1500000000"/>
 
         </route>
     </camelContext>
