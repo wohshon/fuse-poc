@@ -16,10 +16,11 @@ public class MyProcessor {
         log.info("======saveDocumentId");
 
         //incoming is a json string
-        String json=(String)ex.getIn().getBody();
+        String xml=(String)ex.getIn().getBody();
 
         //JsonObject jsonObject=gson.fromJson(json, JsonObject.class);
-        log.info("============================"+json);
+        log.info("============================"+xml);
+		ex.getIn().setBody(xml.replace("<o>", "").replace("</o>", ""));
         Cache cache=Cache.getInstance();
         cache.put((String)ex.getIn().getHeader("DOC_ID"),(String)ex.getIn().getHeader("JMSCorrelationID"));
 
