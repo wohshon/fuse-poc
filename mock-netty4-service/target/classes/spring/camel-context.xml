@@ -4,7 +4,7 @@
     <bean class="org.mycompany.MyProcessor" id="myProcessor"/>
     <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
         <route id="netty4-consumer">
-            <from id="_from1" uri="netty4:tcp://0.0.0.0:5021"/>
+            <from id="_from1" uri="netty4:tcp://0.0.0.0:5021?decoderMaxLineLength=1500000000&amp;textline=true"/>
             <log message="INCOMING request ${body}"/>
             <log  message="Header - JMSCorrelationID: ${header.JMSCorrelationID}"/>
             <log id="_log9" message=">>> In the beginning of netty4-consumer"/>
