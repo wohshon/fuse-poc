@@ -19,9 +19,9 @@ public class MyProcessor implements Processor {
 	public void process(Exchange exchange) throws Exception {
 		log.info("In headers:"+exchange.getIn().getHeaders());
 
-		String path="src/main/resources/input/tcpip_response.xml";
+		//String path="src/main/resources/input/tcpip_response.xml";
 		
-		File file = ResourceUtils.getFile("classpath:tcpip_response.xml");
+		File file = ResourceUtils.getFile("classpath:/tcpip_response.xml");
 
 		//Read File Content
 		String xml = new String(Files.readAllBytes(file.toPath()));
