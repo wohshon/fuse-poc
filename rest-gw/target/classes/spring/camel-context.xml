@@ -25,7 +25,7 @@
 <!--
     <to id="_to2 " pattern="InOnly" uri="amqp:queue:input.json?jmsMessageType=Text"/>
 -->
-    <to  pattern="InOut" uri="amqp:queue:input.json?jmsMessageType=Text&amp;replyTo=output.json"/>
+    <to  pattern="InOut" uri="amqp:queue:input.json?jmsMessageType=Text&amp;replyTo=output.json&amp;requestTimeout=15000"/>
     <log message="GET AMQ MESSAGE BODY: ${body}"/>  
      <log message="Reply Header - JMSCorrelationID: ${header.JMSCorrelationID}"/>
       <setHeader headerName="Content-Type"> 

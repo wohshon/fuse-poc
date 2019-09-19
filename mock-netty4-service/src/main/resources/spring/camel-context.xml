@@ -25,7 +25,9 @@
             <log message=">>> SIMULATE, PROCCESSING DONE, return to client"/>
             <log message="HEADERS0 0 ${headers}"/>
             <log message="HEADERS ${headers}"/>
+
             <process id="_process1" ref="myProcessor"/>
+            <log message="RESPONSE ${body}"/>
             <log  message="Checking again DOC_ID header is still avail: ${header.DOC_ID}"/>
             <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5022?transferExchange=true&amp;sync=false"/>
 

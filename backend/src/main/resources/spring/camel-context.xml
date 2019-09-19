@@ -34,7 +34,7 @@
                 <simple>${header.JMSCorrelationID}</simple>
             </setHeader>      -->
 
-            <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5021?transferExchange=true"/>
+    <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5021?transferExchange=true"/>
 
   </route>
 
@@ -47,6 +47,7 @@
                 <to id="_to2" uri="ref:responsetx"/>
                 -->
       <marshal ref="xmljson"/>
+            <log message="Transformed Response from RPP ${body}"/>
 
         <to id="replyamqp " pattern="InOnly" uri="amqp:queue:output.json?jmsMessageType=Text"/>
 

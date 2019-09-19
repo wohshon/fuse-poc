@@ -16,10 +16,7 @@
  */
 package com.redhat;
 
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.logging.Logger;
 
 import com.google.gson.Gson;
@@ -40,16 +37,16 @@ public class MyTransformer {
 
     Gson gson = new Gson();
     public void request(Exchange ex) {
-        log.info("====================="+ex.getIn().getBody().toString());
+        //log.info("====================="+ex.getIn().getBody().toString());
         //Map<String, LinkedHashMap<String, LinkedHashMap>> map=(LinkedHashMap<String,LinkedHashMap<String, LinkedHashMap>>)ex.getIn().getBody();
         Map map=(Map)ex.getIn().getBody();
-        log.info(""+map.get("ns:BusMsg"));
+        //log.info(""+map.get("ns:BusMsg"));
         String jsonString = gson.toJson(ex.getIn().getBody(), Map.class);
+        log.info("INCOMING JSON REQUEST:\n"+jsonString);    
         JsonObject jo=gson.fromJson(jsonString, JsonObject.class);
         String docRef=jo.get("ns:BusMsg").getAsJsonObject().get("ns:AppHdr").getAsJsonObject().get("ns1:BizMsgIdr").getAsJsonObject().get("#text").getAsString();
-        log.info("----"+ docRef);
+        log.info("DOCUMENT ID:\n"+ docRef);
         ex.getIn().setHeader("DOC_ID", docRef);
-        log.info("OUTPUT"+jsonString);
         ex.getIn().setBody(jsonString);
         //log.info(""+map.get("ns:BusMsg"));
         //incoming is a json string

@@ -29,6 +29,9 @@ public class MyProcessor implements Processor {
 		String xml = Files.lines(Paths.get(path)).collect(Collectors.joining("\n"));
 		//		<ns1:BizMsgIdr>20190816BBBBBBBB010HRB17117964</ns1:BizMsgIdr>
 		xml=xml.replace("<ns1:BizMsgIdr>20190816BBBBBBBB010HRB17117964</ns1:BizMsgIdr>", "<ns1:BizMsgIdr>"+exchange.getIn().getHeader("DOC_ID")+"</ns1:BizMsgIdr>");
+		log.info("random delay");
+		Thread.sleep((long)(Math.random() * 1000)*2);
+
 		exchange.getIn().setBody(xml);
 	}
 
