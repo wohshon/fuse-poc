@@ -40,7 +40,7 @@
   </route>
 
         <route id="netty4-consumer">
-            <from id="_from1" uri="netty4:tcp://0.0.0.0:5022"/>
+            <from id="_from1" uri="netty4:tcp://0.0.0.0:5022?decoderMaxLineLength=50000000"/>
             <log message="Response from RPP ${body}"/>
             <log  message="Header - JMSCorrelationID: ${header.JMSCorrelationID}"/>
 
