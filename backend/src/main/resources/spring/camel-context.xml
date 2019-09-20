@@ -38,8 +38,9 @@
 <!--
     <to pattern="InOnly" id="_to1" uri="netty4:tcp://netty-backend:5021?transferExchange=true&amp;textline=true"/>
     <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5021?transferExchange=true&amp;textline=true"/>
+<to pattern="InOnly" id="_to1" uri="netty4:tcp://netty-backend:5021?transferExchange=true&amp;decoderMaxLineLength=1500000000"/>
 -->
-<to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5021?transferExchange=true&amp;decoderMaxLineLength=1500000000"/>
+<to pattern="InOnly" id="_to1" uri="netty4:tcp://netty-backend:5021?transferExchange=true&amp;decoderMaxLineLength=1500000000"/>
   </route>
 
         <route id="netty4-consumer">

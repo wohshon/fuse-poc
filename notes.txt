@@ -1,2 +1,3 @@
 curl -X POST -H "Content-type: application/json" -d@/home/virtuser/apps/poc/fuse-poc/rest-gw/src/main/resources/request.json  http://localhost:8080/api/rest/request/BBBBB
 
+oc new-app redhat-openjdk18-openshift:1.5~https://github.com/wohshon/fuse-poc --context-dir=rest-gw --name=rest-gw

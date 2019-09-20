@@ -32,8 +32,9 @@
             <!--
             <to pattern="InOnly" id="_to1" uri="netty4:tcp://backend:5022?transferExchange=true&amp;sync=false&amp;textline=true&amp;decoderMaxLineLength=1500000000"/>
             <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5022?transferExchange=true&amp;sync=false&amp;textline=true&amp;decoderMaxLineLength=1500000000"/>
+            <to pattern="InOnly" id="_to1" uri="netty4:tcp://backend:5022?transferExchange=true&amp;sync=false&amp;decoderMaxLineLength=1500000000"/>
             -->
-            <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5022?transferExchange=true&amp;sync=false&amp;decoderMaxLineLength=1500000000"/>
+            <to pattern="InOnly" id="_to1" uri="netty4:tcp://backend:5022?transferExchange=true&amp;sync=false&amp;decoderMaxLineLength=1500000000"/>
         </route>
     </camelContext>
 </beans>
