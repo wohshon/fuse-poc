@@ -1,0 +1,2 @@
+curl -X POST -H "Content-type: application/json" -d@/home/virtuser/apps/poc/fuse-poc/rest-gw/src/main/resources/request.json  http://localhost:8080/api/rest/request/BBBBB
+

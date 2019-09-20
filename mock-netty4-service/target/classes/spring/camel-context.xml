@@ -4,7 +4,7 @@
     <bean class="org.mycompany.MyProcessor" id="myProcessor"/>
     <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
         <route id="netty4-consumer">
-            <from id="_from1" uri="netty4:tcp://0.0.0.0:5021?decoderMaxLineLength=1500000000&amp;textline=true"/>
+            <from id="_from1" uri="netty4:tcp://0.0.0.0:5021?decoderMaxLineLength=1500000000"/>
             <log message="INCOMING request ${body}"/>
             <log  message="Header - JMSCorrelationID: ${header.JMSCorrelationID}"/>
             <log id="_log9" message=">>> In the beginning of netty4-consumer"/>
@@ -29,8 +29,11 @@
             <process id="_process1" ref="myProcessor"/>
             <log message="RESPONSE ${body}"/>
             <log  message="Checking again DOC_ID header is still avail: ${header.DOC_ID}"/>
+            <!--
             <to pattern="InOnly" id="_to1" uri="netty4:tcp://backend:5022?transferExchange=true&amp;sync=false&amp;textline=true&amp;decoderMaxLineLength=1500000000"/>
-
+            <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5022?transferExchange=true&amp;sync=false&amp;textline=true&amp;decoderMaxLineLength=1500000000"/>
+            -->
+            <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5022?transferExchange=true&amp;sync=false&amp;decoderMaxLineLength=1500000000"/>
         </route>
     </camelContext>
 </beans>

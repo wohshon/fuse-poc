@@ -35,12 +35,15 @@
             </setHeader>      -->
 
     <log message="CALLING NETTY" />
+<!--
     <to pattern="InOnly" id="_to1" uri="netty4:tcp://netty-backend:5021?transferExchange=true&amp;textline=true"/>
-
+    <to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5021?transferExchange=true&amp;textline=true"/>
+-->
+<to pattern="InOnly" id="_to1" uri="netty4:tcp://localhost:5021?transferExchange=true&amp;decoderMaxLineLength=1500000000"/>
   </route>
 
         <route id="netty4-consumer">
-            <from id="_from1" uri="netty4:tcp://0.0.0.0:5022?decoderMaxLineLength=1500000000&amp;textline=true"/>
+            <from id="_from1" uri="netty4:tcp://0.0.0.0:5022?decoderMaxLineLength=1500000000"/>
             <log message="Response from RPP ${body}"/>
             <log  message="Header - JMSCorrelationID: ${header.JMSCorrelationID}"/>
 

@@ -19,8 +19,8 @@ public class MyProcessor {
         String xml=(String)ex.getIn().getBody();
 
         //JsonObject jsonObject=gson.fromJson(json, JsonObject.class);
-        log.info("============================"+xml);
 		ex.getIn().setBody(xml.replace("<o>", "").replace("</o>", ""));
+        log.info("============================"+xml);
         Cache cache=Cache.getInstance();
         cache.put((String)ex.getIn().getHeader("DOC_ID"),(String)ex.getIn().getHeader("JMSCorrelationID"));
 

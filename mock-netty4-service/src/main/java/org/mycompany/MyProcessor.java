@@ -17,7 +17,8 @@ public class MyProcessor implements Processor {
 	public void process(Exchange exchange) throws Exception {
 		log.info("In headers:"+exchange.getIn().getHeaders());
 
-		String path="/deployments/data/tcpip_response.xml";
+		//String path="/deployments/data/tcpip_response.xml";
+		String path="/tmp/data/tcpip_response.xml";
 		
 		
 	
